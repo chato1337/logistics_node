@@ -10,17 +10,18 @@ export class DeliveryService {
     return res;
   }
 
-  async findOne(id: number) {
+  async findOne(id: string) {
     const res = await models.Delivery.findByPk(id);
     return res;
   }
 
   async create(data: any) {
+    console.log(data)
     const res = await models.Delivery.create(data);
     return res;
   }
 
-  async update(id: number, data: any) {
+  async update(id: string, data: any) {
     const model = await this.findOne(id);
     if (model) {
       const res = await model.update(data);
@@ -29,7 +30,7 @@ export class DeliveryService {
     return 'delivery not found'
   }
 
-  async delete(id: number) {
+  async delete(id: string) {
     const model = await this.findOne(id);
     if (model) {
       await model.destroy();

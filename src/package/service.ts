@@ -10,7 +10,7 @@ export class PackageService {
     return res;
   }
 
-  async findOne(id: number) {
+  async findOne(id: string) {
     const res = await models.Package.findByPk(id);
     return res;
   }
@@ -20,7 +20,7 @@ export class PackageService {
     return res;
   }
 
-  async update(id: number, data: any) {
+  async update(id: string, data: any) {
     const model = await this.findOne(id);
     if (model) {
       const res = await model.update(data);
@@ -29,7 +29,7 @@ export class PackageService {
     return 'Package not found'
   }
 
-  async delete(id: number) {
+  async delete(id: string) {
     const model = await this.findOne(id);
     if (model) {
       await model.destroy();

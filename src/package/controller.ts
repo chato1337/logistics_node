@@ -1,7 +1,8 @@
+import { Request, Response } from 'express';
 import { PackageService } from './service'
 const service = new PackageService();
 
-export const create = async (req: any, res: any) => {
+export const create = async (req: Request, res: Response) => {
     try { 
         const response = await service.create(req.body);
         res.json({ success: true, data: response});
@@ -10,8 +11,7 @@ export const create = async (req: any, res: any) => {
     }
 }
 
-export const get = async (req: any, res: any) => {
-    console.log(req)
+export const get = async (req: Request, res: Response) => {
     try {
         const response = await service.find();
         res.json(response);
@@ -20,7 +20,7 @@ export const get = async (req: any, res: any) => {
     }
 }
 
-export const getById = async (req: any, res: any) => {
+export const getById = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const response = await service.findOne(id);
@@ -30,7 +30,7 @@ export const getById = async (req: any, res: any) => {
     }
 }
 
-export const update = async (req: any, res: any) => {
+export const update = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const body = req.body;
@@ -41,7 +41,7 @@ export const update = async (req: any, res: any) => {
     }
 }
 
-export const _delete = async (req: any, res: any) => {
+export const _delete = async (req: Request, res: Response) => {
     try {
         const { id } = req.params; 
         const response = await service.delete(id);

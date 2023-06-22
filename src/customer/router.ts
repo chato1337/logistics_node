@@ -10,4 +10,4 @@ router
     .put('/:id', update)
     .delete('/:id', _delete);
 
-export default router;
+export const customerRoutes = router
