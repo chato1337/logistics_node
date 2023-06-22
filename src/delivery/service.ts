@@ -16,7 +16,6 @@ export class DeliveryService {
   }
 
   async create(data: any) {
-    console.log(data)
     const res = await models.Delivery.create(data);
     return res;
   }

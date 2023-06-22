@@ -16,7 +16,6 @@ export class CustomerService {
   }
 
   async create(data: any) {
-    console.log(data)
     const res = await models.Customer.create(data);
     return res;
   }

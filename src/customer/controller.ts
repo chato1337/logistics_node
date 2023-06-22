@@ -3,7 +3,6 @@ import { CustomerService } from './service'
 const service = new CustomerService();
 
 export const create = async (req: Request, res: Response) => {
-    console.log(req.body)
     try { 
         const response = await service.create(req.body);
         res.json({ success: true, data: response});

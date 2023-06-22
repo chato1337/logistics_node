@@ -3,7 +3,6 @@ import { DeliveryService } from './service'
 const service = new DeliveryService();
 
 export const create = async (req: Request, res: Response) => {
-    console.log(req)
     try { 
         const response = await service.create(req.body);
         res.json({ success: true, data: response});
